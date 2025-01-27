@@ -4,9 +4,9 @@ import numpy as np
 
 def create_connection():
     return mysql.connector.connect(
-        host="localhost",
-        user="root",
-        password="Sh@dow2001",
+        host="host name",
+        user="user",
+        password="password",
         database="comgas"
     )
 

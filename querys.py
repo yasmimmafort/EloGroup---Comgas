@@ -3,9 +3,9 @@ from mysql.connector import Error
 
 def criar_conexao():
     return mysql.connector.connect(
-        host="localhost",
-        user="root",
-        password="Sh@dow2001",
+        host="host name",
+        user="user",
+        password="senha",
         database="comgas"
     )
 
@@ -60,7 +60,7 @@ def obter_subprojeto_com_maior_media_m2():
     consulta = """
     SELECT dm_subprojeto.ds_subprojeto, AVG(ft_lead.vl_m2_apartamentos) as media_m2
     FROM ft_lead
-    JOIN dm_subprojeto ON ft_lead.sk_subprojeto = dm_subprojeto.sk_subprojeto
+    LEFT JOIN dm_subprojeto ON ft_lead.sk_subprojeto = dm_subprojeto.sk_subprojeto
     WHERE ft_lead.vl_m2_apartamentos IS NOT NULL
     GROUP BY dm_subprojeto.ds_subprojeto
     ORDER BY media_m2 DESC
